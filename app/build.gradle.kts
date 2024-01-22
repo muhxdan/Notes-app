@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -68,6 +69,12 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    // Accompanist
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
+
+    // Google font
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.5.4")
+
     // Splash screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
@@ -75,5 +82,9 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
+
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.49")
+    ksp("com.google.dagger:hilt-android-compiler:2.48.1")
 
 }
