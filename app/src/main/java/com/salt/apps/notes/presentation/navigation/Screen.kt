@@ -3,6 +3,6 @@ package com.salt.apps.notes.presentation.navigation
 sealed class Screen(
     val route: String,
 ) {
-    data object Home : Screen("home")
+    data object Main : Screen("main")
     data object Add : Screen("add")
 }
