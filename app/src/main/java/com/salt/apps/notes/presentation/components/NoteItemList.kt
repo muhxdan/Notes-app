@@ -28,14 +28,14 @@ fun NoteItemList(note: NoteEntity) {
                 .padding(15.dp)
         ) {
             Text(
-                note.title ?: "-",
+                note.title.takeUnless { it.isNullOrBlank() } ?: "-",
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Spacer(modifier = Modifier.height(6.dp))
             Text(
-                note.description ?: "-",
+                text = note.description.takeUnless { it.isNullOrBlank() } ?: "-",
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.bodyMedium
