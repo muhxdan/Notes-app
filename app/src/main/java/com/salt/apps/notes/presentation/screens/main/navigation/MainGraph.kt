@@ -15,19 +15,14 @@ fun NavGraphBuilder.mainGraph(
 ) {
     composable(
         route = Screen.Main.route,
-        enterTransition = {
-            return@composable slideIntoContainer(
-                AnimatedContentTransitionScope.SlideDirection.Down, tween(500)
-            )
-        },
         exitTransition = {
             return@composable slideOutOfContainer(
-                AnimatedContentTransitionScope.SlideDirection.Up, tween(500)
+                AnimatedContentTransitionScope.SlideDirection.Down, tween(500)
             )
         },
         popEnterTransition = {
             return@composable slideIntoContainer(
-                AnimatedContentTransitionScope.SlideDirection.Down, tween(500)
+                AnimatedContentTransitionScope.SlideDirection.Up, tween(500)
             )
         },
         content = {
