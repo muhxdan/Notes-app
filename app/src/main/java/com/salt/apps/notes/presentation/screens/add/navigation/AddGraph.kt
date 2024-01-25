@@ -3,11 +3,14 @@ package com.salt.apps.notes.presentation.screens.add.navigation
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.salt.apps.notes.presentation.navigation.Screen
 import com.salt.apps.notes.presentation.screens.add.AddScreen
 
-fun NavGraphBuilder.addGraph() {
+fun NavGraphBuilder.addGraph(
+    navController: NavHostController
+) {
     composable(
         route = Screen.Add.route,
         enterTransition = {
@@ -20,13 +23,8 @@ fun NavGraphBuilder.addGraph() {
                 AnimatedContentTransitionScope.SlideDirection.Down, tween(500)
             )
         },
-        popEnterTransition = {
-            return@composable slideIntoContainer(
-                AnimatedContentTransitionScope.SlideDirection.Start, tween(500)
-            )
-        },
         content = {
-            AddScreen()
+            AddScreen(navController = navController)
         }
     )
 }
