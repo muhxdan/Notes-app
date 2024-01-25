@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.salt.apps.notes.presentation.components.TopAppBar
 import com.salt.apps.notes.presentation.components.ViewPagerConfig
 import com.salt.apps.notes.presentation.navigation.MainNavHost
 import com.salt.apps.notes.presentation.navigation.Screen
@@ -37,15 +36,6 @@ fun MainScreen(
     var selectedTab by remember { mutableIntStateOf(pagerState.currentPage) }
 
     Scaffold(
-        topBar = {
-            if (currentRoute != Screen.Main.route) TopAppBar(
-                currentScreen = currentRoute,
-                canNavigateBack = navController.previousBackStackEntry != null,
-                navigateUp = {
-                    navController.navigateUp()
-                },
-            )
-        },
         floatingActionButton = {
             if (currentRoute == Screen.Main.route) Box(
                 modifier = Modifier.padding(
