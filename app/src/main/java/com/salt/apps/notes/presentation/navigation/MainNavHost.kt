@@ -13,13 +13,13 @@ import com.salt.apps.notes.presentation.screens.main.navigation.mainGraph
 fun MainNavHost(
     navController: NavHostController,
     viewPagerConfig: ViewPagerConfig,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     NavHost(navController = navController, startDestination = Main.route, modifier = modifier) {
         mainGraph(
             viewPagerConfig = viewPagerConfig
         )
-        addGraph()
+        addGraph(navController = navController)
     }
 }
 
