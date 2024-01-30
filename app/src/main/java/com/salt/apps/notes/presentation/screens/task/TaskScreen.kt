@@ -1,4 +1,4 @@
-package com.salt.apps.notes.presentation.screens.todo
+package com.salt.apps.notes.presentation.screens.task
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,12 +9,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun TodoScreen() {
+fun TaskScreen(
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Todo Screen")
+        Text(text = "Task Screen")
     }
 }
