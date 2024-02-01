@@ -1,4 +1,4 @@
-package com.salt.apps.notes.presentation.components
+package com.salt.apps.notes.presentation.screens.note.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.clickable
@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+
 
 private enum class ItemState { Pressed, Idle }
 

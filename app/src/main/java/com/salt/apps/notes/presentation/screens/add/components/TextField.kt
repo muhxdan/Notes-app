@@ -1,4 +1,4 @@
-package com.salt.apps.notes.presentation.components
+package com.salt.apps.notes.presentation.screens.add.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme

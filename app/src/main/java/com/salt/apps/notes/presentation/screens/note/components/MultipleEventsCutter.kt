@@ -1,7 +1,7 @@
-package com.salt.apps.notes.presentation.components
+package com.salt.apps.notes.presentation.screens.note.components
 
 
-internal interface MultipleEventsCutter {
+interface MultipleEventsCutter {
     fun processEvent(event: () -> Unit)
 
     companion object
