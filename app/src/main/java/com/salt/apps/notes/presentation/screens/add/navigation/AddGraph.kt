@@ -5,26 +5,39 @@ import androidx.compose.animation.core.tween
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.salt.apps.notes.presentation.navigation.Screen
+import com.salt.apps.notes.data.local.entity.NoteEntity
+import com.salt.apps.notes.presentation.navigation.screen.AppScreen
 import com.salt.apps.notes.presentation.screens.add.AddScreen
 
 fun NavGraphBuilder.addGraph(
-    navController: NavHostController
+    appNavController: NavHostController
 ) {
     composable(
-        route = Screen.Add.route,
+        route = AppScreen.Add.route,
+        arguments = AppScreen.Add.navArguments,
         enterTransition = {
-            return@composable slideIntoContainer(
-                AnimatedContentTransitionScope.SlideDirection.Up, tween(500)
+            slideIntoContainer(
+                AnimatedContentTransitionScope.SlideDirection.Start, tween(500)
             )
         },
         exitTransition = {
-            return@composable slideOutOfContainer(
-                AnimatedContentTransitionScope.SlideDirection.Down, tween(500)
+            slideOutOfContainer(
+                AnimatedContentTransitionScope.SlideDirection.End, tween(500)
             )
         },
         content = {
-            AddScreen(navController = navController)
+            val noteId = it.arguments?.getInt("noteId") ?: 0
+            val noteTitle = it.arguments?.getString("noteTitle") ?: ""
+            val noteDescription = it.arguments?.getString("noteDescription") ?: ""
+            val noteDate = it.arguments?.getString("noteDate") ?: ""
+
+            val note = NoteEntity(
+                id = noteId,
+                title = noteTitle,
+                description = noteDescription,
+                date = noteDate
+            )
+            AddScreen(appNavController = appNavController, note = note)
         }
     )
 }

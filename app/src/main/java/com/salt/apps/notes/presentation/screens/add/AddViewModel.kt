@@ -35,10 +35,11 @@ class AddViewModel @Inject constructor(private val repository: Repository) : Vie
         return currentTime.format(Date())
     }
 
-    fun insertNote(title: String, description: String) {
+    fun insertNote(id: Int, title: String, description: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertNote(
                 noteEntity = NoteEntity(
+                    id = id,
                     title = title,
                     description = description,
                     date = currentTime.value
