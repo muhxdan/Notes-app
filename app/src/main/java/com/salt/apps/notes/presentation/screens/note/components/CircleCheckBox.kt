@@ -1,6 +1,7 @@
 package com.salt.apps.notes.presentation.screens.note.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -18,7 +19,15 @@ import com.salt.apps.notes.presentation.theme.md_theme_light_onPrimary
 fun CircleCheckbox(selected: Boolean) {
     val tint = if (selected) md_theme_light_onPrimary else MaterialTheme.colorScheme.surfaceVariant
     val background =
-        if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
+        if (selected) {
+            MaterialTheme.colorScheme.primary
+        } else {
+            if (isSystemInDarkTheme()) {
+                MaterialTheme.colorScheme.surfaceTint
+            } else {
+                MaterialTheme.colorScheme.background
+            }
+        }
 
     Box(
         modifier = Modifier
