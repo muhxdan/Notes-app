@@ -71,7 +71,6 @@ fun NoteItemList(
                         style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Light)
                     )
                 }
-
                 if (mainViewModel.screenState.value.selectedNotes.isNotEmpty()) {
                     CircleCheckbox(
                         selected = mainViewModel.screenState.value.selectedNotes.contains(note.id),
@@ -88,7 +87,8 @@ private fun handleNoteItemClick(
     mainViewModel: MainViewModel,
     multipleEventsCutter: MultipleEventsCutter
 ) {
-    if (mainViewModel.screenState.value.selectedNotes.isNotEmpty()) {
+
+    if (mainViewModel.screenState.value.isAppBarOpened) {
         mainViewModel.toggleSelectedNoteCard(note.id)
     } else {
         multipleEventsCutter.processEvent {
