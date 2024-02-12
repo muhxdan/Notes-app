@@ -10,7 +10,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.salt.apps.notes.presentation.screens.main.MainScreen
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.salt.apps.notes.presentation.navigation.navhost.AppNavHost
 import com.salt.apps.notes.presentation.theme.NotesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,12 +22,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setupSplashScreen()
         setContent {
+            val appNavController: NavHostController = rememberNavController()
             NotesTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainScreen()
+                    AppNavHost(appNavController = appNavController)
                 }
             }
         }
