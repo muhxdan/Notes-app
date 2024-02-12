@@ -1,34 +1,19 @@
 package com.salt.apps.notes.presentation.screens.main.navigation
 
-import androidx.compose.animation.AnimatedContentTransitionScope
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.salt.apps.notes.presentation.components.ViewPager
-import com.salt.apps.notes.presentation.components.ViewPagerConfig
-import com.salt.apps.notes.presentation.navigation.Screen
+import com.salt.apps.notes.presentation.navigation.screen.AppScreen
+import com.salt.apps.notes.presentation.screens.main.MainScreen
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 fun NavGraphBuilder.mainGraph(
-    viewPagerConfig: ViewPagerConfig
+    appNavController: NavHostController
 ) {
     composable(
-        route = Screen.Main.route,
-        exitTransition = {
-            return@composable slideOutOfContainer(
-                AnimatedContentTransitionScope.SlideDirection.Down, tween(500)
-            )
-        },
-        popEnterTransition = {
-            return@composable slideIntoContainer(
-                AnimatedContentTransitionScope.SlideDirection.Up, tween(500)
-            )
-        },
-        content = {
-            ViewPager(
-                viewPagerConfig = viewPagerConfig
-            )
-        }
-    )
+        route = AppScreen.Main.route,
+    ) {
+        MainScreen(appNavController = appNavController)
+    }
 }
