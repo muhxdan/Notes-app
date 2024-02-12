@@ -1,6 +1,7 @@
 package com.salt.apps.notes.presentation.navigation.navhost
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.salt.apps.notes.presentation.navigation.screen.AppScreen
@@ -9,8 +10,9 @@ import com.salt.apps.notes.presentation.screens.main.navigation.mainGraph
 import com.salt.apps.notes.presentation.screens.settings.navigation.settingsGraph
 
 @Composable
-fun AppNavHost(appNavController: NavHostController) {
+fun AppNavHost(appNavController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(
+        modifier = modifier,
         navController = appNavController,
         startDestination = AppScreen.Main.route,
     ) {
